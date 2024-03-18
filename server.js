@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/shophub", {
   useCreateIndex: true,
 });
 
-// app.get("/", (req, res) => res.send("Server is ready"));
+app.get("/", (req, res) => res.send("Server is ready."));
 
 app.use("/api/uploads", uploadRouter);
 app.use("/api/users", usersRouter);
@@ -38,8 +38,8 @@ const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // TODO: change this if you want to deploy frontend and backend separately
-app.use(express.static(path.join(__dirname, "/frontend/build")));
-app.get("*", (req, res) => res.sendFile(path.join(__dirname, "/frontend/build/index.html")));
+// app.use(express.static(path.join(__dirname, "/frontend/build")));
+// app.get("*", (req, res) => res.sendFile(path.join(__dirname, "/frontend/build/index.html")));
 
 // middleware for handling errors
 app.use((err, req, res, next) => {
