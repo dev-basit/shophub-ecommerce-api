@@ -45,6 +45,7 @@ app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // middleware for handling errors
 app.use((err, req, res, next) => {
+  console.log(err.message);
   res.status(500).send({ message: err.message });
 });
 
